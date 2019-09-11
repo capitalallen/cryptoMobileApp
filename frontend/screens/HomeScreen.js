@@ -97,19 +97,19 @@ export default class HomeScreen extends React.Component {
                       </View>
                     </View>
                 </ScrollView>
-              <View style={{ flex: 10 }}>
-                <Button onPress={()=>{true}}>
+              {/* <View style={{ flex: 10 }}>
+                <Button onPress={()=>{false}}>
                   <Text>Show modal</Text>
                 </Button>
-                <Modal isVisible={true}>
+                <Modal isVisible={false}>
                   <View style={{ flex: 1 }}>
                     <Text>Hello!wefewfwefwe</Text>
-                    <Button onPress={()=>{this.state.modalVisible}}>
+                    <Button onPress={()=>{false}}>
                       <Text>Hide modal</Text>
                     </Button>
                   </View>
                 </Modal>
-              </View>
+              </View> */}
 
             <View style={{flexDirection: 'row'}}>
               <Button Info style={styles.buttonBottom} onPress={()=>{}}><Text style={styles.buttonText}>Send</Text></Button>
