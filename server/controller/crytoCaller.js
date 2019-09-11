@@ -23,9 +23,12 @@ exports.minCoin= async(req,res,next) =>{
     try {
         let amount = parseInt(req.query.amount);
         var response = null
+        var account = '0x062d8259bdc485bca82f2a962dc3245136ca5c38';
+        var password = "";
         if (amount){
-            var receipt = await smartContractCall.mintCoin(amount)
+            var receipt = await smartContractCall.mintCoin(amount,account,password)
             if (receipt){
+                console.log(receipt)
                 response = amount
                 await res.status(200).json({
                     response: response
@@ -73,7 +76,9 @@ exports.sendToken = async(req,res,next) =>{
         const sender = req.query.sender
         const receiver = req.query.receiver
         const amount = req.query.amount
-        var output = await smartContractCall.sendToken(sender,receiver,amount)
+        var account = '0x062d8259bdc485bca82f2a962dc3245136ca5c38';
+        var password = "";
+        var output = await smartContractCall.sendToken(sender,receiver,amount,account,password)
         var senderBalance = null
         if (output) {
             senderBalance = await smartContractCall.getBalance(sender)
@@ -86,4 +91,7 @@ exports.sendToken = async(req,res,next) =>{
     } catch (err) {
         res.status(404).send(err)
     }
+}
+exports.helloTest = (req,res,next)=>{
+    res.send("url works")
 }

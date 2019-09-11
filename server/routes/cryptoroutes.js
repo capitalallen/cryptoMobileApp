@@ -14,4 +14,5 @@ router.get('/supply',crytoController.totalSupply);
 router.get('/mine',crytoController.minCoin);
 // /transfer/?sender=&receiver=&amount=
 router.get('/transfer',crytoController.sendToken);
+router.get('/hello',crytoController.helloTest)
 module.exports = router;

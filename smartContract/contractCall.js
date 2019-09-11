@@ -38,7 +38,6 @@ exports.getAccounts = async () => {
   }
   exports.mintCoin = async (amount) => {
       try {
-          contract.options.address = contractAddress;
           const address = `${process.env.masterAddress}`;
           var receipt = await contract.methods.mint(address,amount).send({from:address});
           return receipt;
