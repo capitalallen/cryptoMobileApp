@@ -12,8 +12,8 @@ import {
   styleSheet,
   SafeAreaView,
   Dimensions,
-  TextInput
 } from 'react-native';
+import Modal from "react-native-modal";
 import Category from './Category';
 import Categorytwo from './Categorytwo';
 import { MonoText } from '../components/StyledText';
@@ -25,7 +25,8 @@ export default class HomeScreen extends React.Component {
       totalSupply:0,
       own:0,
       isLoad:false,
-      address:"enter address"     
+      address:"enter address",
+      modalVisible:true     
     }
   };
   getTotalSupply = () => {
@@ -96,12 +97,20 @@ export default class HomeScreen extends React.Component {
                       </View>
                     </View>
                 </ScrollView>
-            <View>
-              <TextInput
-                onChangeText={text => this.setState({address:text})}
-              >
-              </TextInput>
-            </View>
+              <View style={{ flex: 10 }}>
+                <Button onPress={()=>{true}}>
+                  <Text>Show modal</Text>
+                </Button>
+                <Modal isVisible={true}>
+                  <View style={{ flex: 1 }}>
+                    <Text>Hello!wefewfwefwe</Text>
+                    <Button onPress={()=>{this.state.modalVisible}}>
+                      <Text>Hide modal</Text>
+                    </Button>
+                  </View>
+                </Modal>
+              </View>
+
             <View style={{flexDirection: 'row'}}>
               <Button Info style={styles.buttonBottom} onPress={()=>{}}><Text style={styles.buttonText}>Send</Text></Button>
               <Button Info style={styles.buttonBottom} onPress={()=>{this.mineToken(5)}}><Text style={styles.buttonText}>Mine</Text></Button>
