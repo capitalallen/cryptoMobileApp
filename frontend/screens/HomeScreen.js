@@ -10,7 +10,6 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Dimensions,
-  TextInput
 } from 'react-native';
 import Modal from 'react-native-modalbox';
 import { Dropdown } from 'react-native-material-dropdown';
