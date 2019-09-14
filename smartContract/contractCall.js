@@ -59,7 +59,6 @@ exports.getAccounts = async () => {
    exports.supply = async() =>{
        try {
             contract.options.address = contractAddress;
-            console.log(contract.options.address);
             const s =  await contract.methods.totalSupply().call();
             if (s){
                 return s.toNumber()
