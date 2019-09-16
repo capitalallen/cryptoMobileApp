@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Dimensions,
+  TextInput
 } from 'react-native';
 import Modal from 'react-native-modalbox';
 import { Dropdown } from 'react-native-material-dropdown';
@@ -26,7 +27,7 @@ export default class HomeScreen extends React.Component {
       amount:0,
       address:"0x062d8259bdc485bca82f2a962dc3245136ca5c38",
       potentialReciver:["0x062d8259bdc485bca82f2a962dc3245136ca5c38", "0x3989c22fc18e1d7b79a6d3190b9a53566d33ff88"],
-      receiver: "",   
+      receiver: "0x3989c22fc18e1d7b79a6d3190b9a53566d33ff88",   
     }
   };
   getTotalSupply = () => {
@@ -49,7 +50,7 @@ export default class HomeScreen extends React.Component {
     );
   }
   mineToken = (amount) =>{
-    urlCall.mineToken(amount).then((data) => {
+    urlCall.mineToken(amount,this.state.address).then((data) => {
       var content = ""
       if (data){
         content = "successfully mined" + amount.toString()
@@ -163,7 +164,7 @@ export default class HomeScreen extends React.Component {
                       >
                       </TextInput>
                   </View>
-                  <Button Primary><Text>Send</Text></Button>
+                  <Button Primary onPress={()=>{this.sendToken();this.onClose()}}><Text>Send</Text></Button>
                   <Button Primary onPress={()=>{this.onClose()}}><Text>Cancel</Text></Button>
                 </Modal>
             <View style={{flexDirection: 'row'}}>
